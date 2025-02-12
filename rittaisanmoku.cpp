@@ -49,20 +49,27 @@ double EuclidDis(pair<double, double> a, pair<double, double> b)
 
 int main()
 {
-    int n = 5;
+
+    cout << "立体n目並べゲームを開始します" << endl;
+    cout << "nを入力してください．自分のコマをn個並べると勝ちです．" << endl;
+    int n;
+    cin >> n;
     vector<vector<vector<ll> > > a(n, vector<vector<ll> > (n, vector<ll> (n, -inf))); // 空-1、o0、x1
     bool turn = 0;         // o0,x1
     while (1)
     {
         // 入力
         int x, y, z;
+        cout << "現在" << turn << "のターンです．" << endl;
+        cout << "コマを置く座標を入力してください．" << endl;
+        cout << "x座標,y座標,z座標の順に空白区切りで入力します．" << endl;
         cin >> x >> y >> z;
         if (a[x][y][z] == -inf)
         {
             a[x][y][z] = turn;
             turn = !turn;
         }else{
-            cout << "error" << endl;
+            cout << "置くことができません．" << endl;
         }
 
         // 出力
